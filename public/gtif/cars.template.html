@@ -1,0 +1,28 @@
+<div class="mainContain">
+  <div ng-repeat="car in cars  | orderBy: riders" class="repeatContain bottomSpacer">
+    <div class="imageContain">
+      <img ng-src='{{car.imageUrl}}' alt='{{car.driver}}'>
+    </div>
+    <div class="carContain align">
+      <div class='bottomSpacer'>
+        <div>
+          <h1 class="topKill"><i class="fa fa-car" aria-hidden="true"></i>{{car.driver}}</h1>
+        </div>
+      </div>
+      <div class='commentButtons'>
+        <div>
+          <div class='riderJustify'>
+            {{car.riders}}
+          </div>
+          <div class='align'>
+            <button class="vote up" ng-click="upVote(id)" ng-init='id=post.id'></button>
+            <button class="vote down" ng-click="downVote(id)"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class='imageContain'>
+      <img ng-src='{{post.image}}' alt='{{post.imageAlt}}'>
+    </div> -->
+  </div>
+</div>

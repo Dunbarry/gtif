@@ -1,5 +1,5 @@
-angular.module('movieApp')
-.controller('gtifController', function ($scope, $http, $location) {
+angular.module('gtifApp')
+.controller('cars', function ($scope, $http, $location) {
   $scope.cars = [{
     id: 0,
     driver: 'Ryan Dunbar',
