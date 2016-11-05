@@ -1,0 +1,64 @@
+<div class="mainContain">
+  <div ng-repeat="car in cars  | orderBy: riders" class="repeatContain bottomSpacer">
+    <div class='imageContain'>
+      <img ng-src='{{car.imageUrl}}' alt='{{car.driver}}'>
+    </div>
+    <div class="carContain">
+      <div class='bottomSpacer'>
+        <div>
+          <h1 class="topKill">{{car.driver}}</h1>
+        </div>
+        <div class='metaData'>
+          <!-- <p class='align'>{{car.driver}} <i id='FF'class="fa fa-microphone" aria-hidden="true"></i></p> -->
+          <p>{{car.riders | amCalendar}}</p>
+        </div>
+      </div>
+      <div class='commentButtons'>
+        <div>
+          <div class='riderJustify'>
+            {{car.riders}}
+          </div>
+          <div class='align'>
+            <button class="vote up" ng-click="upVote(id)" ng-init='id=post.id'></button>
+            <button class="vote down" ng-click="downVote(id)"></button>
+          </div>
+        </div>
+        <div class='align'>
+          <button class="viewButton" ng-click="commentShow(post)" ng-init='id=post.id'>
+            {{post.commentCount}}
+            <ng-pluralize count="post.commentCount"
+                          when="{'1': 'comment',
+                             'other': 'comments'}">
+            </ng-pluralize>
+          </button>
+          <button class="makeButton" ng-click="commentFormShow(post)">Transmit</button>
+        </div>
+      </div>
+      <!-- <form name='commentCreation' class='make' ng-submit='addComment(id)' ng-show="post.makeComment">
+        <h1>Comment</h1>
+        <input type="text" value="post.commentCount" ng-model='newComment.id' hidden/>
+        <label for='author'>Username</label>
+        <div>
+          <input type='text' name='author' ng-model='newComment.author' required/>
+        </div>
+          <label for='commentContent'>Your Comment?</label>
+        <div>
+          <textarea rows='4' cols='50' name='commentContent' ng-model='newComment.content' required></textarea>
+        </div>
+        <input type='submit' value='Send Reply'/>
+      </form> -->
+      <!-- <div ng-repeat='comment in post.comments' class='commentContain'>
+        <div ng-show="post.commentHold">
+          <div class="metaData">
+            <p class="bottomKill">{{comment.author}}</p>
+            <p class="bottomKill">{{comment.time | amCalendar}}</p>
+          </div>
+          <p class="topKill bottomKill">&#8594; {{comment.content}}</p>
+        </div>
+      </div> -->
+    </div>
+    <!-- <div class='imageContain'>
+      <img ng-src='{{post.image}}' alt='{{post.imageAlt}}'>
+    </div> -->
+  </div>
+</div>
