@@ -31,9 +31,13 @@ i{
   margin-right: .75vw;
 }
 
+.btn{
+  background-color: #f4a111 !important;
+}
+
 .rideOrDrive{
   display: flex;
-  margin-left: 37.5%;
+  margin-left: 37.75vw;
   margin-top: 2.5vw;
   width: 25vw;
 }

@@ -6,7 +6,7 @@
     .module('app')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['authService'];
+  HomeController.$inject = ['authService', cars];
 
   function HomeController (authService) {
     var vm = this
