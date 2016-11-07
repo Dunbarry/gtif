@@ -12,7 +12,7 @@
     <button class="btn btn-primary">I want to ride!</button>
     <button class="btn btn-primary" ngClick="changePage()">I want to drive!</button>
   </div>
-  <div class="mainContain" ng-if="isAuthenticated" ng-controller="CarsController">
+  <div class="mainContain" ng-if="isAuthenticated">
     <div class="make" ng-show="formHide">
       <label for="seats">How many people can you take?</label>
       <input type="number" name="seats" ng-model="seats" value="1" min="1" max="7" required/>

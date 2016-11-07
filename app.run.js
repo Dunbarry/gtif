@@ -6,12 +6,14 @@
     .module('app')
     .run(run);
 
-  run.$inject = ['$rootScope', 'authService', 'lock', 'authManager'];
+  run.$inject = ['$rootScope', 'authService', 'lock', 'authManager', 'carService'];
 
-  function run($rootScope, authService, lock, authManager) {
+  function run($rootScope, authService, lock, authManager, carService) {
     // Put the authService on $rootScope so its methods
     // can be accessed from the nav bar
     $rootScope.authService = authService;
+
+    $rootScope.carService = carService;
 
     // Register the authentication listener that is
     // set up in auth.service.js

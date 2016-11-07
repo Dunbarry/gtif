@@ -31,7 +31,7 @@
       })
       .state('cars', {
         url: '/cars',
-        controller: 'CarsController',
+        controller: 'cars',
         templateUrl: 'components/cars/cars.html',
         controllerAs: 'cars'
       });
