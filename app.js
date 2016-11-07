@@ -28,6 +28,12 @@
         controller: 'AdminController',
         templateUrl: 'components/admin/admin.html',
         controllerAs: 'vm'
+      })
+      .state('cars', {
+        url: '/cars',
+        controller: 'CarsController',
+        templateUrl: 'components/cars/cars.html',
+        controllerAs: 'cars'
       });
 
     lockProvider.init({
@@ -52,4 +58,3 @@
   }
 
 })();
-

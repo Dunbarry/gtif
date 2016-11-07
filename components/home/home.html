@@ -1,20 +1,48 @@
 <div class="jumbotron">
-  <h2 class="text-center"><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
+  <h2 class="text-center"><img src="../components/images/GT-IF.gif"></h2>
   <h2 class="text-center">Home</h2>
   <div class="text-center" ng-if="!isAuthenticated">
     <p>You are not yet authenticated. <a ui-sref="login">Log in.</a></p>
   </div>
   <div class="text-center" ng-if="isAuthenticated">
-    <h2>It's that time again, {{ vm.profile.given_name }}...</h2>
+    <h2>It's that time again, {{ vm.profile.given_name }}!</h2>
     <img ng-src="{{ vm.profile.picture }}">
   </div>
   <div class="commentButtons rideOrDrive" ng-if="isAuthenticated">
     <button class="btn btn-primary">I want to ride!</button>
-    <button class="btn btn-primary" ngClick="showForm()">I want to drive!</button>
+    <button class="btn btn-primary" ngClick="changePage()">I want to drive!</button>
   </div>
-  <div class="make">
-    <label for="seats">How many people can you take?</label>
-    <input type="number" name="seats" ng-model="seats" value="1" min="1" max="7" required/>
-    <button class="btn btn-primary" ngClick="addCar(seats)"></button>
+  <div class="mainContain" ng-if="isAuthenticated" ng-controller="CarsController">
+    <div class="make" ng-show="formHide">
+      <label for="seats">How many people can you take?</label>
+      <input type="number" name="seats" ng-model="seats" value="1" min="1" max="7" required/>
+      <button class="btn btn-primary" ngClick="addCar(seats)"></button>
+    </div>
+    <div ng-repeat="car in cars.cars  | orderBy: riders" class="repeatContain bottomSpacer">
+      <div class="imageContain">
+        <img ng-src='{{car.imageUrl}}' alt='{{car.driver}}'>
+      </div>
+      <div class="carContain align">
+        <div class='bottomSpacer'>
+          <div>
+            <h1 class="topKill"><i class="fa fa-car" aria-hidden="true"></i>{{car.driver}}</h1>
+          </div>
+        </div>
+        <div class='commentButtons'>
+          <div>
+            <div class='riderJustify'>
+              {{car.riders}}
+            </div>
+            <div class='align'>
+              <button class="vote up" ng-click="upVote(id)" ng-init='id=post.id'></button>
+              <button class="vote down" ng-click="downVote(id)"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='imageContain'>
+        <img ng-src='{{post.image}}' alt='{{post.imageAlt}}'>
+      </div>
+    </div>
   </div>
 </div>

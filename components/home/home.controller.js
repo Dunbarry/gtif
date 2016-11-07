@@ -4,9 +4,9 @@
 
   angular
     .module('app')
-    .controller('HomeController', HomeController);
+    .controller('HomeController', HomeController)
 
-  HomeController.$inject = ['authService', cars];
+  HomeController.$inject = ['authService'];
 
   function HomeController (authService) {
     var vm = this
