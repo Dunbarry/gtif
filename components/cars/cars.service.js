@@ -5,9 +5,11 @@
 
   angular
     .module('app')
-    .service('carService', cars)
+    .service('carService', carService);
 
-  function cars () {
+
+  function carService () {
+    var cars={}
     cars.user = {}
     cars.carTracker = 1
     cars.formHide = false
@@ -42,6 +44,5 @@
       }
     }
     return cars
-    console.log(cars.cars)
   }
 })()

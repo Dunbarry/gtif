@@ -9,16 +9,15 @@
 
   HomeController.$inject = ['authService', 'carService'];
   // HomeController.$inject = ['cars'];
-  var cars = cars()
 
-  function HomeController (authService) {
+  function HomeController (authService, carService) {
     var vm = this
     vm.authService = authService
 
-    authService.getProfileDeferred().then(function (profile, cars) {
+    authService.getProfileDeferred().then(function (profile) {
       vm.profile = profile;
-      cars.user = profile
-      console.log(vm.profile)
+      carService.user = profile
+      console.log('Here',carService.user)
     });
   }
 }());
